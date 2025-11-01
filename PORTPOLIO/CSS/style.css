@@ -20,7 +20,7 @@
 
 html{
 	font-size: 62.5%;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 body{
@@ -35,7 +35,8 @@ section{
 
 .header{
 	position: fixed;
-	top: 0; left: 0;
+	top: 0; 
+	left: 0;
 	width: 100%;
 	background: var(--bg-color);
 	display: flex;
@@ -59,8 +60,8 @@ section{
 	font-weight: 700;
 }
 
-.navbar a.hover,
-.navbar a:active{
+.navbar a:hover,
+.navbar a.active{
 	color: var(--text-color);
 }
 
@@ -77,7 +78,7 @@ section{
 }
 
 .home-content h3{
-	font-size: 4rem;
+	font-size: 3.2rem;
 	font-weight: 700;
 }
 
@@ -96,6 +97,8 @@ span{
 }
 
 .home-img img{
+	margin-left: 8rem;
+	margin-bottom: 5rem;
 	width: 25vw;
 	animation: floatImage 4s ease-in-out infinite;
 	border-radius: 50%;
@@ -158,10 +161,7 @@ span{
 	color: var(--main-color);
 }
 
-.navbar a:hover{
-	color: yellow;
-	transform: scale(1.20);
-}
+
 
 .typewriter{
 	display: inline-block;
@@ -176,7 +176,7 @@ span{
 		width: 0;
 	}
 	to{
-		width: 13ch;
+		width: 17ch;
 	}
 }
 
@@ -185,3 +185,37 @@ span{
 		border-color: transparent;
 	}
 }
+
+.about{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	background: var(--snd-bg-color);
+}
+
+.about-img img{
+	width: 20vw;
+	border-radius: 5rem;
+	box-shadow: 0 0 2rem var(--main-color);
+	margin-right: 30px;
+}
+
+.heading{
+	text-align: center;
+	font-size: 4.5rem;
+}
+
+.about-content h2{
+	text-align: left;
+	line-height: 1.2;
+}
+
+.about-content h3{
+	font-size: 2.6rem;
+}
+
+.about-content p{
+	font-size: 1.6rem;
+	margin: 2rem 0 3rem;
+} 
