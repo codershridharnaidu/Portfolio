@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -39,14 +39,19 @@
 			<h3>And I'm a <span class="typewriter">Full Stack Developer</span></h3>
 			<p>I create responsive and accessible web applications, ensuring seamless user experiences across all
 				devices.</p>
-			<div class="social-media">
-				<a href="#"><i class="fa-brands fa-instagram"></i></a>
-				<a href="#"><i class="fa-brands fa-facebook"></i></a>
+			<div class="social-media" >
+				<a href="https://instagram.com/foucs_on_the_coding" target="_blank" rel="noopener noreferrer" aria-label="Instagram — Shridhar">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
 				<a href="#"><i class="fa-brands fa-twitter"></i></a>
-				<a href="#"><i class="fa-brands fa-github"></i></a>
+				<a href="https://github.com/justfocuscoders" target="_blank" rel="noopener noreferrer" aria-label="GitHub — Shridhar">
+    <i class="fa-brands fa-github"></i>
+  </a>
+				<a href="https://linkedin.com/in/justfocuscoders" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — Shridhar">
+	<i class="fa-brands fa-linkedin"></i>
 			</div>
 			<br>
-			<a href="#" class="btn">Download Resume</a>
+			<a href="../assets/Job Resume.pdf" class="btn" download="Shridhar Resume.pdf">Download Resume</a>
 		</div>
 		<div class="home-img">
 			<img src="../assets/image.png" alt="Home Image">
@@ -63,58 +68,56 @@
 			<h2 class="heading">ABOUT<span> ME </span></h2>
 			<h3>Full Stack Developer</h3>
 			<p>Hi, I’m Shridhar — a passionate and motivated beginner in web development. I love learning new technologies and building creative, user-friendly websites.</p>
-			<a href="#" class="btn">Read More</a>
+			<a href="about.html" class="btn">Read More</a>
 		</div>
 	</section>
 
 	<!-- Skills -->
 	 <section class="skills" id="skills">
 		<h2 class="heading">MY <span> SKILLS </span></h2>
-		<hr style="width: 200px; margin: auto; border: 2px solid var(--main-color); margin-bottom: 40px; margin-top: 10px;">
 
 		<div class="skill-container">
 			<div class="skill-box">
 				<i class="fa-brands fa-html5"></i>
 				<h3>HTML</h3>
 				<p>Experienced in creating semantic and accessible web pages using HTML5.</p>
-				<a href="#" class="btn">Read More</a>
+				
 			</div>
 			<div class="skill-box">
 				<i class="fa-brands fa-css3"></i>
 				<h3>CSS</h3>
 				<p>Proficient in styling web pages with CSS3, including Flexbox and Grid layouts.</p>
-				<a href="#" class="btn">Read More</a>
+				
 			</div>
 			<div class="skill-box">
 				<i class="fa-solid fa-user-astronaut"></i>
 				<h3>JavaScript</h3>
 				<p>Skilled in JavaScript for adding interactivity and dynamic content to web applications.</p>
-				<a href="#" class="btn">Read More</a>
+				
 			</div>
 			<div class="skill-box">
 				<i class="fa-brands fa-python"></i>
 				<h3>Python</h3>
 				<p>Familiar with Python for building web applications and data analysis.</p>
-				<a href="#" class="btn">Read More</a>
+				
 			</div>
 			<div class="skill-box">
 				<i class="fa-solid fa-database"></i>
 				<h3>MySQL</h3>
 				<p>Basic knowledge of MySQL for database management and data manipulation.</p>
-				<a href="#" class="btn">Read More</a>
+				
 			</div>
 			<div class="skill-box">
 				<i class="fa-brands fa-github"></i>
 				<h3>Git & GitHub</h3>
 				<p>Experience with version control using Git and collaborating on projects via GitHub.</p>
-				<a href="#" class="btn">Read More</a>
+				
 			</div>
 	 </section>
 
 	<!-- Projects -->
 	<section class="projects" id="projects">
 		<h2 class="heading">MY <span> PROJECTS </span></h2>
-		<hr style="width: 200px; margin: auto; border: 2px solid var(--main-color); margin-bottom: 40px; margin-top: 10px;">
 
 		<div class="project-container">
 			<div class="project-box">
@@ -147,23 +150,22 @@
 	<!-- Contact -->
 	<section class="contact" id="contact">
 		<h2 class="heading">CONTACT <span> ME </span></h2>
-		<hr style="width: 200px; margin: auto; border: 2px solid var(--main-color); margin-bottom: 40px; margin-top: 10px;">
 
 		
 		<form action="#">
 			<div class="input-box">
-				<input type="text" id="name" placeholder="Full Name" required>
+				<input type="text" id="name" placeholder="Full Name" >
 				<p class="error" id="nameError"></p>
 				<input type="email" id="email" placeholder="Email Address" required>
 				<p class="error" id="emailError"></p>
 			</div>
 			<div class="input-box">
-				<input type="number" id="phone" placeholder="Phone Number" required>
+				<input type="tel" id="phone" placeholder="Phone Number" required>
 				<p class="error" id="phoneError"></p>
-				<input type="text" id="address" placeholder="Address" required>
+				<input type="text" id="address" placeholder="Address" >
 				<p class="error" id="addressError"></p>
 			</div>
-			<textarea id="message" placeholder="Your Message" required></textarea>
+			<textarea id="message" placeholder="Your Message" ></textarea>
 			<input type="submit" id="submit" value="Send Message" class="btn">
 			<p class="error" id="messageError"></p>
 		</form>

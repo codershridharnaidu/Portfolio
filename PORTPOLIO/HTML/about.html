@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Shridhar Naidu</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- inline style -->
+  <style>
+    :root {
+      --main-color: #0d6efd;
+      --muted: #6c757d;
+      --card-bg: #ffffff;
+      --soft-shadow: 0 8px 30px rgba(20, 20, 50, 0.06);
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial;
+      background: #f8f9fa;
+      color: #212529;
+    }
+
+    .hero {
+      background: linear-gradient(120deg,
+          rgba(13, 110, 253, 0.08),
+          rgba(102, 16, 242, 0.04));
+      padding: 40px 0;
+    }
+
+    .card-ghost {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skill-label {
+      font-size: 0.9rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 10px;
+      background: #f1f5ff;
+      color: var(--main-color);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    footer {
+      padding: 20px 0;
+      text-align: center;
+      color: #666;
+      margin-top: 40px;
+      background-color: #f1f1f1;
+    }
+
+    .social-icons a {
+      color: inherit;
+      margin-right: 10px;
+      font-size: 1.25rem;
+    }
+
+    /*  Timeline and Education improvements */
+    .edu-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .timeline-vertical {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    /* vertical accent line */
+    .timeline-vertical::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 8px;
+      bottom: 8px;
+      width: 4px;
+      background: linear-gradient(180deg, var(--main-color), #6d5cff);
+      border-radius: 4px;
+    }
+
+    .timeline-entry {
+      position: relative;
+      padding: 12px 12px 12px 30px;
+      margin-bottom: 18px;
+      border-left: none;
+    }
+
+    /* marker */
+    .timeline-entry::before {
+      content: "";
+      position: absolute;
+      left: -2px;
+      /* aligns with vertical line */
+      top: 18px;
+      width: 14px;
+      height: 14px;
+      background: var(--card-bg);
+      border: 4px solid var(--main-color);
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .timeline-entry h6 {
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .timeline-entry small {
+      color: var(--muted);
+    }
+
+    .edu-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .edu-gp {
+      background: linear-gradient(90deg, rgba(13, 110, 253, 0.12), rgba(13, 110, 253, 0.06));
+      color: var(--main-color);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      min-width: 86px;
+      text-align: center;
+    }
+
+    /* make experience timeline slightly different color */
+    .exp-card .timeline-entry::before {
+      border-color: #6f42c1;
+    }
+
+    /* small responsive tweaks */
+    @media (max-width: 991px) {
+      .timeline-vertical::before {
+        left: 10px;
+      }
+
+      .timeline-entry::before {
+        left: -4px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .profile-img {
+        width: 110px;
+        height: 110px;
+      }
+    }
+
+    .quick-info-card {
+      background: linear-gradient(145deg, #ffffff, #f9faff);
+      border-radius: 14px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(13, 110, 253, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .quick-info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(13, 110, 253, 0.15);
+    }
+
+    .quick-info-card h6 {
+      font-size: 0.95rem;
+    }
+
+    .quick-info-card p {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="py-3 bg-white shadow-sm">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="text-decoration-none d-flex align-items-center gap-2">
+        <i class="fa-solid fa-arrow-left text-primary"></i>
+        <span class="fw-bold text-dark">Back to Home</span>
+      </a>
+      <div>
+        <a class="btn btn-outline-primary" href="../assets/Job Resume.pdf" download="Shridhar_Naidu_Resume.pdf">
+          <i class="fa-solid fa-download me-2"></i>Download Resume
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / profile -->
+  <section class="hero">
+    <div class="container">
+      <div class="card-ghost p-4">
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img src="../assets/img2.jpg" alt="Shridhar Naidu" class="profile-img img-fluid" />
+          </div>
+          <div class="col-md-6">
+            <h2 class="mb-1">SHRIDHAR NAIDU</h2>
+            <div class="chip mb-2">
+              <i class="fa-solid fa-code"></i> FULL - STACK DEVELOPER
+            </div>
+            <p class="meta mb-1">
+              <i class="fa-solid fa-phone me-2"></i>9767459770 &nbsp; • &nbsp;
+              <i class="fa-regular fa-envelope me-2"></i><a
+                href="mailto:shridharnaidujob@gmail.com">shridharnaidujob@gmail.com</a>
+            </p>
+            <p class="meta mb-2">
+              <i class="fa-solid fa-location-dot me-2"></i>Poladpur - 402303
+            </p>
+            <p>
+              Enthusiastic and detail-oriented Information Technology student
+              with hands-on experience in full-stack web development. Skilled
+              in PHP (Laravel, CodeIgniter), MySQL, and front-end
+              technologies. Seeking opportunities to contribute technical
+              expertise and problem-solving skills to a dynamic organization.
+            </p>
+
+            <div class="social-icons mt-3">
+              <a href="https://instagram.com/foucs_on_the_coding" target="_blank" rel="noopener noreferrer"
+                aria-label="Instagram" data-bs-toggle="tooltip" data-bs-title="Instagram"><i
+                  class="fa-brands fa-instagram"></i></a>
+              <a href="https://github.com/justfocuscoders" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                data-bs-toggle="tooltip" data-bs-title="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com/in/justfocuscoders" target="_blank" rel="noopener noreferrer"
+                aria-label="LinkedIn" data-bs-toggle="tooltip" data-bs-title="LinkedIn"><i
+                  class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-3 text-center text-md-start mt-3 mt-md-0">
+            <div class="quick-info-card p-3">
+              <h6 class="mb-3 text-uppercase fw-bold text-primary">
+                <i class="fa-solid fa-user-clock me-2"></i> Quick Info
+              </h6>
+              <p class="mb-2"><strong>Age:</strong> 22</p>
+              <p class="mb-2"><strong>Experience:</strong> 1+ year (Intern + Freelance)</p>
+              <p class="mb-2"><strong>Availability:</strong> Open to Work</p>
+              <p class="mb-0"><strong>Location:</strong> Poladpur, Maharashtra</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Summary -->
+  <section class="container mt-4">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="card p-4">
+          <h5 class="mb-3">Technical Skills</h5>
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <p class="skill-label mb-1">PHP (Laravel, CodeIgniter)</p>
+              <div class="progress" style="height: 9px">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 78%"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <p class="skill-label mb-1">HTML / CSS / Bootstrap</p>
+              <div class="progress" style="height: 9px">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <p class="skill-label mb-1">MySQL</p>
+              <div class="progress" style="height: 9px">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 76%"></div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <p class="skill-label mb-1">Python</p>
+              <div class="progress" style="height: 9px">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 60%"></div>
+              </div>
+            </div>
+
+            <div class="col-md-6 mt-3">
+              <p class="mb-1">
+                <strong>Tools:</strong> XAMPP, Microsoft Office (Excel, Word,
+                PowerPoint)
+              </p>
+            </div>
+            <div class="col-md-6 mt-3">
+              <p class="mb-1">
+                <strong>Other:</strong> Android App Development Basics, Excel
+                (advanced)
+              </p>
+            </div>
+          </div>
+
+          <hr class="my-4" />
+
+          <h5 class="mb-3">Soft Skills</h5>
+          <ul>
+            <li>Problem Solving</li>
+            <li>Team Collaboration</li>
+            <li>Time Management</li>
+            <li>Onsite Client Handling</li>
+          </ul>
+
+          <hr class="my-4" />
+
+          <h5 class="mb-3">Languages</h5>
+          <p>English • Marathi • Hindi • Telugu</p>
+        </div>
+
+        <!-- Projects -->
+        <div class="card p-4 mt-4">
+          <h5 class="mb-3">Projects</h5>
+
+          <div class="mb-3">
+            <h6 class="mb-1">Student Feedback System (SFS)</h6>
+            <p class="meta mb-1">
+              <strong>Tech Stack:</strong> PHP, HTML, CSS, MySQL, XAMPP
+            </p>
+            <p>
+              Developed a web-based feedback system to collect and analyze
+              student responses regarding courses, instructors, and
+              facilities. Collaborated with a team of 8 and handled frontend
+              and backend modules.
+            </p>
+          </div>
+
+          <div class="mb-3">
+            <h6 class="mb-1">Konkan Credit Collection (KCC)</h6>
+            <p class="meta mb-1">
+              <strong>Purpose:</strong> Manage loans, collections, deposits,
+              and reports.
+            </p>
+            <p>
+              Created a web-based system that reduced manual effort, improved
+              operational efficiency, and enabled owners to monitor employee
+              performance and financial activity.
+            </p>
+          </div>
+
+          <div class="mb-0">
+            <h6 class="mb-1">Other Projects</h6>
+            <p class="meta">
+              Pawan Construction (PC) & RMS (other internal projects)
+            </p>
+            <p>
+              Worked on full-stack features across multiple projects —
+              reporting, CRUD operations, and frontend UI improvements.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education & Experience (timeline) -->
+      <div class="col-lg-4">
+        <!-- Education -->
+        <div class="edu-card mb-4">
+          <h5 class="mb-3">Education</h5>
+
+          <div class="timeline-vertical">
+            <div class="timeline-entry">
+              <h6>B.Tech — Information Technology</h6>
+              <small class="d-block">
+                Dr. Babasaheb Ambedkar Technological University, Lonere •
+                2022 – 2025
+              </small>
+              <div class="edu-meta">
+                <div class="text-muted small">Final Year</div>
+                <div class="edu-gp">CGPA 7.16 / 10</div>
+              </div>
+            </div>
+
+            <div class="timeline-entry">
+              <h6>Diploma — Information Technology</h6>
+              <small class="d-block">Institute of Petrochemical Engineering, Lonere • 2019 – 2022</small>
+              <div class="edu-meta">
+                <div class="text-muted small">Final Year</div>
+                <div class="edu-gp">CGPA 8.80 / 10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience / Internship -->
+        <div class="edu-card exp-card">
+          <h5 class="mb-3">Experience / Internship</h5>
+
+          <div class="timeline-vertical">
+            <div class="timeline-entry">
+              <h6>Intern — GRPTechs, Mahad</h6>
+              <small class="d-block">01/03/2025 — Present</small>
+              <p class="mb-0 mt-2 small text-muted">
+                Worked on live web development projects using PHP, Laravel and
+                MySQL. Gained practical experience in frontend & backend
+                development and client communication.
+              </p>
+            </div>
+
+            <div class="timeline-entry">
+              <h6>Freelance / Personal Work</h6>
+              <small class="d-block">2023 – Present</small>
+              <p class="mb-0 mt-2 small text-muted">
+                Built small web applications and personal projects to enhance
+                full-stack development skills.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="mb-1">© 2025 Shridhar Naidu — Full Stack Developer</p>
+      <p class="small">
+        Email:
+        <a href="mailto:shridharnaidujob@gmail.com">shridharnaidujob@gmail.com</a>
+        • Phone: 9767459770
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS (tooltips) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // enable Bootstrap tooltips where used
+    var tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    tooltipTriggerList.forEach(function (el) {
+      new bootstrap.Tooltip(el);
+    });
+  </script>
+</body>
+
+</html>
