@@ -2,14 +2,15 @@
 
 This is my personal portfolio website built using **HTML**, **CSS**, and **JavaScript**.  
 It showcases my projects, skills, and contact information.
+On click ont he About me U will get detailed information.
 
 ---
 
 # Features
-- Animated header and smooth scroll navigation  
-- Falling letters logo animation  
-- Responsive design for all devices  
+- Animated header and smooth scroll navigation   
 - Contact form with validation
+- Download Resume by clicking button
+- Direct visit websites on click on the icons
 
 ---
 
