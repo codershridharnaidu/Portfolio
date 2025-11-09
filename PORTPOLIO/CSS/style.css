@@ -35,43 +35,112 @@ section{
 	padding: 10rem 9% 2rem;
 }
 
-.header{
-	position: fixed;
-	top: 0; 
-	left: 0;
-	width: 100%;
-	background: var(--bg-color);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 2rem 9%;
-	z-index: 100;
+/* ---------- Header entrance + logo glow + link fade ---------- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+    z-index: 100;
+
+    /* entrance */
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: headerSlide 700ms ease-out 0.15s forwards;
 }
 
-.logo{
-	font-size: 2.5rem;
-	font-weight: 700;
-	color: var(--text-color);
-	cursor: default;
+@keyframes headerSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.navbar a{
-	font-size: 1.5rem;
-	color: var(--text-color);
-	margin-left: 4rem;
-	font-weight: 700;
+/* logo (size + glow) */
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    cursor: default;
+    animation: logoGlow 2.5s ease-in-out infinite alternate;
+}
+@keyframes logoGlow {
+    from { text-shadow: 0 0 0px rgba(89,178,244,0.0); }
+    to   { text-shadow: 0 6px 18px rgba(89,178,244,0.12); }
 }
 
-.navbar a:hover,
-.navbar a.active{
-	color: var(--text-color);
+/* navbar links (size + animated entrance + hover underline) */
+.navbar a {
+    position: relative;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 700;
+
+    opacity: 0;
+    transform: translateY(-8px);
+    animation: navLinkFade 600ms ease-out forwards;
+}
+.navbar a:nth-child(1) { animation-delay: 0.40s; }
+.navbar a:nth-child(2) { animation-delay: 0.55s; }
+.navbar a:nth-child(3) { animation-delay: 0.70s; }
+.navbar a:nth-child(4) { animation-delay: 0.85s; }
+.navbar a:nth-child(5) { animation-delay: 1.00s; }
+@keyframes navLinkFade {
+    to { opacity: 1; transform: translateY(0); }
+}
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--main-color), #0061ff);
+    transition: width 0.28s ease;
+}
+.navbar a:hover::after { width: 100%; }
+
+#menu-icon {
+    display: none;
+    font-size: 3.6rem;
+    color: var(--text-color);
 }
 
-#menu-icon{
-	display: none;
-	font-size: 3.6rem;
-	color: var(--text-color);
+/* scroll effect */
+.header.scrolled {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    background: rgba(55, 69, 126, 0.98);
+    transition: background 220ms ease, box-shadow 220ms ease;
 }
+
+/* responsive menu (keep media query below) */
+@media (max-width: 900px) {
+    #menu-icon { display: block; cursor: pointer; }
+    .navbar {
+        position: fixed;
+        top: 72px;
+        right: 0;
+        background: var(--bg-color);
+        width: 260px;
+        height: calc(100% - 72px);
+        transform: translateX(100%);
+        transition: transform 300ms ease;
+        display: flex;
+        flex-direction: column;
+        padding: 2.5rem 2rem;
+        gap: 1.6rem;
+        z-index: 999;
+    }
+    .navbar.open { transform: translateX(0); }
+    .navbar a { margin-left: 0; font-size: 1.8rem; }
+}
+
 
 .home{
 	display: flex;
@@ -389,6 +458,57 @@ span{
 	margin-top: 2rem;
 	cursor: pointer;
 }
+
+/* new */
+/* Popup notification styles */
+.popup-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.popup-message.success {
+    background-color: #28a745; /* Green for success */
+}
+
+.popup-message.fade-out {
+    opacity: 0;
+    transform: translateY(-15px);
+}
+
+.field-popup {
+    position: absolute;
+    background-color: #ff4d4d;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.field-popup.success {
+    background-color: #28a745;
+}
+
+.field-popup.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
 
 /* breakpoints */
 
