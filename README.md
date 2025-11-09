@@ -2,7 +2,7 @@
 
 This is my personal portfolio website built using **HTML**, **CSS**, and **JavaScript**.  
 It showcases my projects, skills, and contact information.
-On click ont he About me U will get detailed information.
+On click on the About me U will get detailed information.
 
 ---
 
